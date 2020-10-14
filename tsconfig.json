@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
@@ -21,7 +23,8 @@
     "outDir": "dist",
     "paths": {
       "@config/*": ["src/config/*"],
-      "@connection/*": ["src/connection/*"]
+      "@connection/*": ["src/connection/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "preserveConstEnums": true,
     "resolveJsonModule": true,
@@ -30,7 +33,7 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es2017"
+    "target": "es6"
   },
   "exclude": ["dist", "node_modules", "jest.config.js", "App.js", "src/aws-exports.js", "ReactotronConfig.js"],
   "include": [

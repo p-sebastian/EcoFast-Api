@@ -14,7 +14,7 @@ const onError = (error: mongoose.Error) => {
 }
 
 export const Database = Object.freeze({
-  connect: () => mongoose.connect(url, {useUnifiedTopology: true}).then(onOpen).catch(onError),
+  connect: () => mongoose.connect(url, {useUnifiedTopology: true, useNewUrlParser: true}).then(onOpen).catch(onError),
 
   disconnect: () => mongoose.disconnect(),
 

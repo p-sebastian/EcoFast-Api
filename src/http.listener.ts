@@ -3,6 +3,7 @@ import {bodyParser$} from '@marblejs/middleware-body'
 import {logger$} from '@marblejs/middleware-logger'
 
 import {api$} from './api.effects'
+import {location$} from './routes/location'
 
 const middlewares = [
   logger$(),
@@ -14,6 +15,7 @@ const middlewares = [
 
 const effects = [
   api$,
+  location$,
   // endpoint2$
   // endpoint3$
   // ...
