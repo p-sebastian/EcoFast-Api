@@ -1,25 +1,14 @@
 import {httpListener} from '@marblejs/core'
 import {bodyParser$} from '@marblejs/middleware-body'
 import {logger$} from '@marblejs/middleware-logger'
+import {points$} from '@routes/point'
+import {users$} from '@routes/user'
 
-import {api$} from './api.effects'
 import {location$} from './routes/location'
 
-const middlewares = [
-  logger$(),
-  bodyParser$(),
-  // middleware3$
-  // middleware4$
-  // ...
-]
+const middlewares = [logger$(), bodyParser$()]
 
-const effects = [
-  api$,
-  location$,
-  // endpoint2$
-  // endpoint3$
-  // ...
-]
+const effects = [location$, points$, users$]
 
 export const listener = httpListener({
   middlewares,

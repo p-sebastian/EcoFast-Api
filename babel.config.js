@@ -12,6 +12,7 @@ module.exports = {
           '@config': './src/config',
           '@connection': './src/connection',
           '@utils': './src/utils',
+          '@routes': './src/routes',
         },
       },
     ],
