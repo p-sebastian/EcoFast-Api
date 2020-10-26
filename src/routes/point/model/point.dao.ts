@@ -48,4 +48,6 @@ export const PointDao = Object.freeze({
         },
       ]).exec(),
     ),
+  findAndUpdate: (user: string, subtract: number) =>
+    from(PointModel.findOneAndUpdate({user}, {$inc: {amount: -subtract}})),
 })
