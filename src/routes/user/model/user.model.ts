@@ -1,10 +1,10 @@
 import {getModelForClass, prop} from '@typegoose/typegoose'
 
 export class User {
-  @prop({required: true})
+  @prop({required: true, unique: true})
   public sub!: string
 
-  @prop({required: true})
+  @prop({required: true, unique: true})
   public email!: string
 }
 

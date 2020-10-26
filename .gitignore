@@ -58,3 +58,7 @@ env.ts
 lib
 dist
 ./src/config/env.ts
+./src/config/cert.pem
+./src/config/key.pem
+src/config/key.pem
+src/config/cert.pem

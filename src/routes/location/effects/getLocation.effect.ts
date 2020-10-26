@@ -1,6 +1,7 @@
-import {HttpError, HttpStatus, r} from '@marblejs/core'
+import {HttpStatus, r} from '@marblejs/core'
 import {requestValidator$} from '@marblejs/middleware-io'
-import {throwError} from 'rxjs'
+import {onError} from '@utils/error.util'
+import {neverNullable} from '@utils/rxjs.util'
 import {catchError, map, mergeMap} from 'rxjs/operators'
 
 import {LocationDao} from '../model/location.dao'
@@ -13,8 +14,9 @@ export const getLocationById$ = r.pipe(
     req$.pipe(
       requestValidator$({params: LocationValidator.findById}),
       mergeMap(req => LocationDao.findById(req.params.id)),
+      mergeMap(neverNullable),
       map(location => ({body: location})),
-      catchError(() => throwError(new HttpError('User does not exist', HttpStatus.NOT_FOUND))),
+      catchError(onError('User does not exist', HttpStatus.NOT_FOUND)),
     ),
   ),
 )

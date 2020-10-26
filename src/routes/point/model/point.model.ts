@@ -6,11 +6,11 @@ export class Point {
   @prop({required: true})
   public amount!: number
 
-  @prop({required: true, ref: () => Location})
+  @prop({required: true, ref: 'Location'})
   public location!: Ref<Location>
 
-  @prop({ref: () => User})
-  public user?: Ref<User>
+  @prop({required: true, ref: 'User'})
+  public user!: Ref<User>
 }
 
 export const PointModel = getModelForClass(Point)
